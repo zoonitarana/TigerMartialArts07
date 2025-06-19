@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tiger Martial Arts - Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e1e1e;
+      color: white;
+    }
+
+    h2 {
+      color: #ff6600;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    #greeting {
+      font-size: 1.2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffffff;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      margin: 10px auto;
+      display: block;
+      background-color: #2c2c2c;
+      color: #ffffff;
+      border: 2px solid #b18263;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #ff6600;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #e65c00;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    input::placeholder {
+      color: #cccccc;
+    }
+  </style>
+</head>
+<body>
+ 
+  <h2>Welcome to Your Dashboard</h2>
+  <p id="greeting"></p>
+
+  <input type="text" id="userId" placeholder="User ID">
+  <input type="text" id="name" placeholder="Name">
+  <input type="email" id="email" placeholder="Email">
+
+  <div class="button-container">
+    <button onclick="createData()">Create</button>
+    <button onclick="readData()">Read</button>
+    <button onclick="updateData()">Update</button>
+    <button onclick="deleteData()">Delete</button>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name');
+
+    if (name) {
+      document.getElementById('greeting').textContent = "Hello, " + decodeURIComponent(name) + " 👊 Welcome to the Academy!";
+    } else {
+      window.location.href = "index.html"; // Redirect if no name is present
+    }
+  </script>
+</body>
+</html>

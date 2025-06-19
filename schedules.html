@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Martial Arts Schedule Page" />
+  <meta name="author" content="Tiger Martial Arts" />
+  <title>Tiger Martial Arts | Class Schedule</title>
+
+  <!-- Fonts and Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-training-studio.css" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      background-color: #fffffe;
+      color: #e6e2e2;
+    }
+
+   
+
+    /* Hero Banner */
+    #schedule-hero {
+      position: relative;
+      height: 100vh;
+      background-image: url(https://t3.ftcdn.net/jpg/07/20/49/52/360_F_720495246_ElJ8FvZPniE4oOQ0t1ejVt1uhDZxsGBz.jpg); 
+      opacity:0.7;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: rgb(254, 253, 253);
+    }
+
+    #schedule-hero .overlay {
+      background: rgba(0, 0, 0);
+      padding: 40px;
+      border-radius: 10px;
+      opacity: 1;
+      
+    }
+
+    #schedule-hero h1 {
+      font-size: 60px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      
+    }
+
+    #schedule-hero p {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    #schedule-hero a {
+      padding: 2px 20px;
+      background-color: #191919;
+      color: #fff;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Day Buttons */
+    .day-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 40px 0 20px;
+    }
+
+    .day-buttons button {
+      padding: 10px 20px;
+      background: #070707;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .day-buttons button:hover,
+    .day-buttons button.active {
+      background: #282727;
+    }
+
+    /* Schedule Table */
+    .schedule {
+      max-width: 900px;
+      margin: 0 auto 60px;
+      background: #e85f15;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(232, 191, 191, 0.4);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 15px;
+      border-bottom: 1px solid #fcfcfc;
+      text-align: center;
+    }
+
+    th {
+      background: #ffffff;
+    }
+
+    .day-schedule {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    .day-schedule.active {
+      display: table-row-group;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+
+ <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        
+                        <a href="index.html" class="logo">Tiger Martial Arts></a>
+                        
+                        <ul class="nav">
+                            <li><a href="index.html" class="active">Home</a></li>
+                            <li ><a href="index.html">About</a></li>
+                            <li ><a href="index.html">Classes</a></li>
+                            <li ><a href="schedules.html">Schedules</a></li>
+                            <li><a href="instructors.html">Instructors</a></li>
+                            <li class="move-to-page"><a href="memberships.html">Memberships</a></li>
+                            <li ><a href="sigup.html">Signup</a></li> 
+                            
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                       
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+  <!-- Hero Banner -->
+ <div class="main-banner" id="top">
+        <video autoplay muted loop id="bg-video">
+            <source src="assets/images/gym-video.mov" type="video/mp4" />
+        </video>
+
+        <div class="video-overlay header-text">
+            <div class="caption">
+                <h6>work harder, get stronger</h6>
+                <h2>Schedules</h2>
+                <div class="main-button scroll-to-section">
+                    <a href="#features">Become a member</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- Weekly Schedule -->
+  <section id="weekly-schedule">
+    <div class="day-buttons">
+      <button onclick="showDay('monday')" class="active">Monday</button>
+      <button onclick="showDay('tuesday')">Tuesday</button>
+      <button onclick="showDay('wednesday')">Wednesday</button>
+      <button onclick="showDay('thursday')">Thursday</button>
+      <button onclick="showDay('friday')">Friday</button>
+      <button onclick="showDay('saturday')">Saturday</button>
+      <button onclick="showDay('sunday')">Sunday</button>
+    </div>
+
+    <div class="schedule">
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Class</th>
+          </tr>
+        </thead>
+
+        <!-- Day Schedules -->
+        <tbody id="monday" class="day-schedule active">
+          <tr><td>06:00–07:30</td><td>Jiu-jitsu</td></tr>
+          <tr><td>08:00–10:00</td><td>Muay Thai</td></tr>
+          <tr><td>10:30–12:00</td><td>Private tuition</td></tr>
+          <tr><td>13:00–14:30</td><td>Open mat</td></tr>
+          <tr><td>15:00–17:00</td><td>Kids jiu-jitsu</td></tr>
+          <tr><td>17:30–19:00</td><td>Karate</td></tr>
+          <tr><td>19:00–21:00</td><td>Jiu-jitsu</td></tr>
+        </tbody>
+
+        <tbody id="tuesday" class="day-schedule">
+          <tr><td>06:00–07:30</td><td>Karate</td></tr>
+          <tr><td>08:00–10:00</td><td>Private tuition</td></tr>
+          <tr><td>10:30–12:00</td><td>Private tuition</td></tr>
+          <tr><td>13:00–14:30</td><td>Open mat</td></tr>
+          <tr><td>15:00–17:00</td><td>Kids judo</td></tr>
+          <tr><td>17:30–19:00</td><td>Muay Thai</td></tr>
+          <tr><td>19:00–21:00</td><td>Judo</td></tr>
+        </tbody>
+
+        <tbody id="wednesday" class="day-schedule">
+          <tr><td>06:00–07:30</td><td>Judo</td></tr>
+          <tr><td>08:00–10:00</td><td>Private tuition</td></tr>
+          <tr><td>10:30–12:00</td><td>Private tuition</td></tr>
+          <tr><td>13:00–14:30</td><td>Open mat</td></tr>
+          <tr><td>15:00–17:00</td><td>Kids karate</td></tr>
+          <tr><td>17:30–19:00</td><td>Judo</td></tr>
+          <tr><td>19:00–21:00</td><td>Jiu-jitsu</td></tr>
+        </tbody>
+
+        <tbody id="thursday" class="day-schedule">
+          <tr><td>06:00–07:30</td><td>Jiu-jitsu</td></tr>
+          <tr><td>08:00–10:00</td><td>Private tuition</td></tr>
+          <tr><td>10:30–12:00</td><td>Private tuition</td></tr>
+          <tr><td>13:00–14:30</td><td>Open mat</td></tr>
+          <tr><td>15:00–17:00</td><td>Kids jiu-jitsu</td></tr>
+          <tr><td>17:30–19:00</td><td>Jiu-jitsu</td></tr>
+          <tr><td>19:00–21:00</td><td>Karate</td></tr>
+        </tbody>
+
+        <tbody id="friday" class="day-schedule">
+          <tr><td>06:00–07:30</td><td>Muay Thai</td></tr>
+          <tr><td>08:00–10:00</td><td>Jiu-jitsu</td></tr>
+          <tr><td>10:30–12:00</td><td>Private tuition</td></tr>
+          <tr><td>13:00–14:30</td><td>Open mat</td></tr>
+          <tr><td>15:00–17:00</td><td>Kids judo</td></tr>
+          <tr><td>17:30–19:00</td><td>Muay Thai</td></tr>
+          <tr><td>19:00–21:00</td><td>Private tuition</td></tr>
+        </tbody>
+
+        <tbody id="saturday" class="day-schedule">
+          <tr><td>08:00–10:00</td><td>Private tuition</td></tr>
+          <tr><td>10:30–12:00</td><td>Judo</td></tr>
+          <tr><td>13:00–14:30</td><td>Karate</td></tr>
+          <tr><td>15:00–17:00</td><td>Muay Thai</td></tr>
+        </tbody>
+
+        <tbody id="sunday" class="day-schedule">
+          <tr><td>08:00–10:00</td><td>Private tuition</td></tr>
+          <tr><td>10:30–12:00</td><td>Karate</td></tr>
+          <tr><td>13:00–14:30</td><td>Judo</td></tr>
+          <tr><td>15:00–17:00</td><td>Jiu-jitsu</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Script to toggle days -->
+  <script>
+    function showDay(dayId) {
+      document.querySelectorAll('.day-schedule').forEach(schedule => {
+        schedule.classList.remove('active');
+      });
+      document.querySelectorAll('.day-buttons button').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(dayId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
