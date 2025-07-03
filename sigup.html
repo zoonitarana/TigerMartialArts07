@@ -21,76 +21,110 @@
     <link rel="stylesheet" href="assets/css/templatemo-training-studio.css">
 
   <style>
-
-
-
- /* Form Styling */
-  #content_container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0;
-    background-image: url("https://cdn.pixabay.com/photo/2021/12/09/20/43/orange-background-6859059_960_720.jpg");
-     
     
-  
- 
 
+#content_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  background: linear-gradient(to bottom right, #f7802b 20%, #ffffff 80%);
+}
+
+#form_container {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  color: #333;
+  animation: fadeInUp 0.9s ease-out;
+}
+
+#form_header {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #f7802b;
+  position: relative;
+}
+
+#form_header::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: #f7802b;
+  margin: 10px auto 0 auto;
+  border-radius: 2px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 12px 0;
+  border: 2px solid #f3f3f3;
+  border-radius: 8px;
+  background: #f9f9f9;
+  color: #333;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #f7802b;
+  background: #fff;
+  outline: none;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+#button_container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  gap: 12px;
+}
+
+button {
+  flex: 1;
+  background-color: #f7802b;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #e56708;
+  transform: translateY(-2px);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-
-  #form_container {
-    background-color: #f8913c;
-    padding: 40px;
-    border-radius: 10px;
-    width: 350px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  #form_header {
-    color: #faf9f9;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
-    background: #f2efef;
-    color: white;
-  }
-
-  input::placeholder {
-    color: #aaa;
-  }
-
-  #button_container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-  }
-
-  button {
-    background-color: #f7802b;
-    color: rgb(255, 255, 255);
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 48%;
-    font-weight: bold;
-    transition: background 0.3s;
-  }
-
-  button:hover {
-    background-color: #e65c00;
-  }
-
-  </style>  
+  </style>
   
   
   </head>
@@ -116,7 +150,9 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         
-                        <a href="index.html" class="logo">Tiger Martial Arts></a>
+                         <a href="index.html" class="logo">
+  <img src="https://www.walsallkarate.co.uk/i/78_VrjR6m_770x0_0_1.png" alt="Tiger Martial Arts Logo" style="height: 50px;"> Tiger Martial arts
+</a>
                         
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="index.html" class="active">Home</a></li>
@@ -158,6 +194,10 @@
      <div id="content_container">
             <div id="form_container">
                 <div id="form_header_container">
+                  <div style="text-align: center; margin-bottom: 15px;">
+  <img src="https://www.walsallkarate.co.uk/i/78_VrjR6m_770x0_0_1.png" alt="Martial Arts Icon" style="width: 60px;">
+</div>
+
                     <h2 id="form_header"> Signup  </h2>
                 </div>
 
